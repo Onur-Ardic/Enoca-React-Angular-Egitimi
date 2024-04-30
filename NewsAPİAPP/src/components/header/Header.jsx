@@ -1,7 +1,22 @@
 import './Header.css'
 import NavbarHeader from './navbar'
-
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { setCountry } from '../../redux/NewsSlice'
 const Header = () => {
+  const [countryValue, setCountryValue] = useState('')
+
+  const dispatch = useDispatch()
+
+  const onchangeCountry = (e) => {
+    const selectedCountry = setCountryValue(e.target.value)
+
+    const a = dispatch(setCountry(countryValue))
+    console.log(a)
+  }
+
+  const defaultvalue = 'tr'
+
   return (
     <>
       <div className="header font-mono">
@@ -10,9 +25,15 @@ const Header = () => {
             <h3>Onur Ardıç</h3>
 
             <div className="input-area">
-              <select name="country" id="country" onChange={}>
-                <option value="TR">Türkiye</option>
-                <option value="US">Amerika</option>
+              <select
+                name="country"
+                id="country"
+                defaultValue={defaultvalue}
+                onChange={onchangeCountry}
+              >
+                <option value="tr">Türkiye</option>
+                <option value="us">Amerika</option>
+                <option value="gb">İngiltere</option>
               </select>
               <input type="text" placeholder="Arama" />
             </div>

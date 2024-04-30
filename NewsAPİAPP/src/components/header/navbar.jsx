@@ -3,14 +3,22 @@ import Form from 'react-bootstrap/Form'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { useDispatch } from 'react-redux'
-import { getTechnologyNews } from '../../redux/NewsSlice'
+import { getTechnologyNews, getHealthNews, getSporNews } from '../../redux/NewsSlice'
 
 function NavbarHeader() {
   const dispatch = useDispatch()
+
   const fetchTechnologyApi = async () => {
     await dispatch(getTechnologyNews())
   }
 
+  const fetchHealthApi = async () => {
+    await dispatch(getHealthNews())
+  }
+
+  const fetchSportsApi = async () => {
+    await dispatch(getSporNews())
+  }
   return (
     <Navbar expand="lg" className="bg-body-tertiary ">
       <Navbar.Toggle aria-controls="navbarScroll" />
@@ -20,8 +28,8 @@ function NavbarHeader() {
           <Nav.Link href="#action2">Hakkımda</Nav.Link>
 
           <button onClick={fetchTechnologyApi}>Teknoloji Haberleri</button>
-          <button>Sağlık Haberleri</button>
-          <button>Spor Haberleri</button>
+          <button onClick={fetchHealthApi}>Sağlık Haberleri</button>
+          <button onClick={fetchSportsApi}>Spor Haberleri</button>
         </Nav>
         <Form className="d-flex d-md-none">
           <Form.Control type="search" placeholder="Search" className="me-2" aria-label="Search" />
