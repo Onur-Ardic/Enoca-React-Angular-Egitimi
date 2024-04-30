@@ -4,18 +4,16 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { setCountry } from '../../redux/NewsSlice'
 const Header = () => {
-  const [countryValue, setCountryValue] = useState('')
+  const [countryValue, setCountryValue] = useState('tr')
 
   const dispatch = useDispatch()
 
   const onchangeCountry = (e) => {
-    const selectedCountry = setCountryValue(e.target.value)
-
-    const a = dispatch(setCountry(countryValue))
-    console.log(a)
+    setCountryValue(e.target.value)
   }
 
-  const defaultvalue = 'tr'
+  const a = dispatch(setCountry(countryValue))
+  console.log(a)
 
   return (
     <>
@@ -25,12 +23,7 @@ const Header = () => {
             <h3>Onur Ardıç</h3>
 
             <div className="input-area">
-              <select
-                name="country"
-                id="country"
-                defaultValue={defaultvalue}
-                onChange={onchangeCountry}
-              >
+              <select name="country" id="country" onChange={onchangeCountry}>
                 <option value="tr">Türkiye</option>
                 <option value="us">Amerika</option>
                 <option value="gb">İngiltere</option>

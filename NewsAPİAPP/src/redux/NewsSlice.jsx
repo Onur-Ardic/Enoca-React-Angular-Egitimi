@@ -3,6 +3,7 @@ import axios from 'axios'
 import { createAction } from '@reduxjs/toolkit'
 
 export const setCountry = createAction('news/setCountry')
+
 const initialState = {
   news: [],
   loading: false,
@@ -41,7 +42,11 @@ export const getSporNews = createAsyncThunk('news/spor', async (_, thunkAPI) => 
 export const newsSlice = createSlice({
   name: 'news',
   initialState,
-  reducers: {},
+  reducers: {
+    setCountry: (state, action) => {
+      state.country = action.payload
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getTechnologyNews.fulfilled, (state, action) => {
