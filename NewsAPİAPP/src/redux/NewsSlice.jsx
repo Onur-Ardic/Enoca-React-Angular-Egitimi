@@ -5,20 +5,37 @@ import { createAction } from '@reduxjs/toolkit'
 export const setCountry = createAction('news/setCountry')
 
 const initialState = {
-  news: [],
+  news: {
+    technology: [],
+    health: [],
+    spor: [],
+    all: [],
+  },
   loading: false,
   country: '',
 }
 
+export const selectNews = (state) => state.news.news
+
+export const newsAllİtem = createAsyncThunk('news/all', async (_, thunkAPI) => {
+  const country = thunkAPI.getState().news.country
+  const response = await axios.get(
+    `https://newsapi.org/v2/top-headlines?country=${country}&apiKey=fb44ce1bd88740d4990d843834598291`,
+  )
+
+  return response.data
+})
+
 export const getTechnologyNews = createAsyncThunk('news/technology', async (_, thunkAPI) => {
   const country = thunkAPI.getState().news.country
-  console.log(country)
 
   const response = await axios.get(
     `https://newsapi.org/v2/top-headlines?category=technology&country=${country}&apiKey=fb44ce1bd88740d4990d843834598291`,
   )
-  console.log(response)
-  return response.data
+
+  const responseData = await response.data
+
+  return responseData
 })
 
 export const getHealthNews = createAsyncThunk('news/health', async (_, thunkAPI) => {
@@ -26,8 +43,10 @@ export const getHealthNews = createAsyncThunk('news/health', async (_, thunkAPI)
   const response = await axios.get(
     `https://newsapi.org/v2/top-headlines?category=health&country=${country}&apiKey=fb44ce1bd88740d4990d843834598291`,
   )
-  console.log(response)
-  return response.data
+
+  const responseData = await response.data
+
+  return responseData
 })
 
 export const getSporNews = createAsyncThunk('news/spor', async (_, thunkAPI) => {
@@ -35,8 +54,11 @@ export const getSporNews = createAsyncThunk('news/spor', async (_, thunkAPI) => 
   const response = await axios.get(
     `https://newsapi.org/v2/top-headlines?category=health&country=${country}&apiKey=fb44ce1bd88740d4990d843834598291`,
   )
-  console.log(response)
-  return response.data
+
+  console.log(responseData)
+  const responseData = await response.data
+
+  return responseData
 })
 
 export const newsSlice = createSlice({
@@ -50,17 +72,19 @@ export const newsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getTechnologyNews.fulfilled, (state, action) => {
-        state.news = action.payload
+        state.news.technology = action.payload
         state.loading = false
       })
-
       .addCase(getHealthNews.fulfilled, (state, action) => {
-        state.news = action.payload
+        state.news.health = action.payload
         state.loading = false
       })
-
       .addCase(getSporNews.fulfilled, (state, action) => {
-        state.news = action.payload
+        state.news.spor = action.payload
+        state.loading = false
+      })
+      .addCase(newsAllİtem.fulfilled, (state, action) => {
+        state.news.all = action.payload
         state.loading = false
       })
   },

@@ -1,6 +1,6 @@
 import './App.css'
 import Header from './components/header/Header'
-import NewsCard from './components/news/newscard'
+import NewsCardWrapper from './components/news/newscardwrapper'
 import NewsCarousel from './components/slider/slider'
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
     <>
       <Header />
       <NewsCarousel />
-      <NewsCard />
+      <NewsCardWrapper />
     </>
   )
 }
