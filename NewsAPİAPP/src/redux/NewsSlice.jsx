@@ -5,12 +5,7 @@ import { createAction } from '@reduxjs/toolkit'
 export const setCountry = createAction('news/setCountry')
 
 const initialState = {
-  news: {
-    technology: [],
-    health: [],
-    spor: [],
-    all: [],
-  },
+  news: [],
   loading: false,
   country: '',
 }
@@ -72,24 +67,22 @@ export const newsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getTechnologyNews.fulfilled, (state, action) => {
-        state.news.technology = action.payload
+        state.news = action.payload
         state.loading = false
       })
       .addCase(getHealthNews.fulfilled, (state, action) => {
-        state.news.health = action.payload
+        state.news = action.payload
         state.loading = false
       })
       .addCase(getSporNews.fulfilled, (state, action) => {
-        state.news.spor = action.payload
+        state.news = action.payload
         state.loading = false
       })
       .addCase(newsAllİtem.fulfilled, (state, action) => {
-        state.news.all = action.payload
+        state.news = action.payload
         state.loading = false
       })
   },
 })
-
-export const {} = newsSlice.actions
 
 export default newsSlice.reducer

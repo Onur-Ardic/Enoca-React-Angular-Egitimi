@@ -1,16 +1,21 @@
 import './news.css'
-import { useSelector } from 'react-redux'
-import { selectNews } from '../../redux/NewsSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { selectNews, newsAllİtem } from '../../redux/NewsSlice'
+import { useEffect } from 'react'
 
 const NewsCardWrapper = () => {
+  const dispatch = useDispatch()
   const news = useSelector(selectNews)
-  console.log(news.technology)
+
+  useEffect(() => {
+    dispatch(newsAllİtem())
+  }, [])
   return (
     <div className="news-card-wrapper">
       <h1 className="text-center">Haberler </h1>
       <div className="container">
         <div className="card-wrapper mt-5">
-          {news.technology.articles.map((article) => (
+          {news.articles?.map((article) => (
             <div className="card" key={article.title}>
               {article.urlToImage && (
                 <div className="card-top">
@@ -19,8 +24,8 @@ const NewsCardWrapper = () => {
               )}
 
               <div className="card-content">
-                <h2>{article.title}</h2>
-                <p>{article.description}</p>
+                <h2>{article.author}</h2>
+                <p>{article.title}</p>
               </div>
             </div>
           ))}
