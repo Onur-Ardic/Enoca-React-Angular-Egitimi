@@ -1,9 +1,14 @@
 import './App.css'
+import Header from './components/header/Header'
+import NewsCard from './components/news/newscard'
+import NewsCarousel from './components/slider/slider'
 
 function App() {
   return (
     <>
-      <h1>Onur Ardıç</h1>
+      <Header />
+      <NewsCarousel />
+      <NewsCard />
     </>
   )
 }

@@ -1,0 +1,32 @@
+.header {
+  font-family: 'B612 Mono', monospace;
+  background-color: #fafafa;
+  padding: 10px;
+  .header-top-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .input-area {
+      #country {
+        padding: 10px 20px;
+        border: 1px solid #fff;
+        border-radius: 10px;
+      }
+
+      input {
+        padding: 10px 20px;
+        border-radius: 7px;
+        border: 1px solid #ccc;
+      }
+    }
+  }
+
+  .header-bottom-wrapper {
+    button {
+      border: none;
+      background-color: transparent;
+      font-size: 1rem;
+    }
+  }
+}
