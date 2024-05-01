@@ -16,7 +16,7 @@ const NewsCardWrapper = () => {
       <div className="container">
         <div className="card-wrapper mt-5">
           {news.articles?.map((article) => (
-            <div className="card" key={article.title}>
+            <div className="card mx-auto" key={article.title}>
               {article.urlToImage && (
                 <div className="card-top">
                   <img src={article.urlToImage} alt="newscard" className="img-fluid" />

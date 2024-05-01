@@ -3,19 +3,30 @@ import axios from 'axios'
 import { createAction } from '@reduxjs/toolkit'
 
 export const setCountry = createAction('news/setCountry')
+export const setSearch = createAction('news/setSearch')
 
 const initialState = {
   news: [],
   loading: false,
   country: '',
+  search: '',
 }
 
 export const selectNews = (state) => state.news.news
 
-export const newsAllİtem = createAsyncThunk('news/all', async (_, thunkAPI) => {
-  const country = thunkAPI.getState().news.country
+export const selectedSearch = createAsyncThunk('search/all', async (_, thunkAPI) => {
+  const search = thunkAPI.getState().news.search
   const response = await axios.get(
-    `https://newsapi.org/v2/top-headlines?country=${country}&apiKey=fb44ce1bd88740d4990d843834598291`,
+    `https://newsapi.org/v2/everything?q=${search}&apiKey=fb44ce1bd88740d4990d843834598291`,
+  )
+
+  console.log(response.data)
+  return response.data
+})
+
+export const newsAllİtem = createAsyncThunk('news/all', async () => {
+  const response = await axios.get(
+    `https://newsapi.org/v2/top-headlines?country=tr&apiKey=fb44ce1bd88740d4990d843834598291`,
   )
 
   return response.data
@@ -50,7 +61,6 @@ export const getSporNews = createAsyncThunk('news/spor', async (_, thunkAPI) => 
     `https://newsapi.org/v2/top-headlines?category=health&country=${country}&apiKey=fb44ce1bd88740d4990d843834598291`,
   )
 
-  console.log(responseData)
   const responseData = await response.data
 
   return responseData
@@ -62,6 +72,10 @@ export const newsSlice = createSlice({
   reducers: {
     setCountry: (state, action) => {
       state.country = action.payload
+    },
+
+    setSearch: (state, action) => {
+      state.search = action.payload
     },
   },
   extraReducers: (builder) => {
@@ -79,6 +93,11 @@ export const newsSlice = createSlice({
         state.loading = false
       })
       .addCase(newsAllİtem.fulfilled, (state, action) => {
+        state.news = action.payload
+        state.loading = false
+      })
+
+      .addCase(selectedSearch.fulfilled, (state, action) => {
         state.news = action.payload
         state.loading = false
       })

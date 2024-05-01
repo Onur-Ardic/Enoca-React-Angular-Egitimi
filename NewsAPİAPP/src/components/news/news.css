@@ -8,7 +8,10 @@
   }
   .card {
     width: 300px;
-    height: max-content;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     padding: 1rem;
     img {

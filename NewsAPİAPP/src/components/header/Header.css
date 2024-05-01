@@ -19,6 +19,13 @@
         border-radius: 7px;
         border: 1px solid #ccc;
       }
+
+      button {
+        border: 1px solid #ccc;
+        padding: 10px 20px;
+        background-color: #fafafa;
+        font-size: 1rem;
+      }
     }
   }
 

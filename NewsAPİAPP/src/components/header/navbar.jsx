@@ -1,5 +1,3 @@
-import Button from 'react-bootstrap/Button'
-import Form from 'react-bootstrap/Form'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { useDispatch } from 'react-redux'
@@ -27,14 +25,16 @@ function NavbarHeader() {
           <Nav.Link href="#action1">Anasayfa</Nav.Link>
           <Nav.Link href="#action2">Hakkımda</Nav.Link>
 
-          <button onClick={fetchTechnologyApi}>Teknoloji Haberleri</button>
-          <button onClick={fetchHealthApi}>Sağlık Haberleri</button>
-          <button onClick={fetchSportsApi}>Spor Haberleri</button>
+          <button className="text-start " onClick={fetchTechnologyApi}>
+            Teknoloji Haberleri
+          </button>
+          <button className="text-start " onClick={fetchHealthApi}>
+            Sağlık Haberleri
+          </button>
+          <button className="text-start " onClick={fetchSportsApi}>
+            Spor Haberleri
+          </button>
         </Nav>
-        <Form className="d-flex d-md-none">
-          <Form.Control type="search" placeholder="Search" className="me-2" aria-label="Search" />
-          <Button variant="outline-success">Search</Button>
-        </Form>
       </Navbar.Collapse>
     </Navbar>
   )

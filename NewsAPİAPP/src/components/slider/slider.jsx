@@ -7,7 +7,6 @@ import { useEffect } from 'react'
 function NewsCarousel() {
   const dispatch = useDispatch()
   const news = useSelector(selectNews)
-  console.log(news)
 
   useEffect(() => {
     dispatch(newsAllİtem())
