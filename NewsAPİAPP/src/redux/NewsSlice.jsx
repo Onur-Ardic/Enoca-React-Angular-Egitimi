@@ -58,10 +58,12 @@ export const getHealthNews = createAsyncThunk('news/health', async (_, thunkAPI)
 export const getSporNews = createAsyncThunk('news/spor', async (_, thunkAPI) => {
   const country = thunkAPI.getState().news.country
   const response = await axios.get(
-    `https://newsapi.org/v2/top-headlines?category=health&country=${country}&apiKey=fb44ce1bd88740d4990d843834598291`,
+    `https://newsapi.org/v2/top-headlines?category=sports&country=${country}&apiKey=fb44ce1bd88740d4990d843834598291`,
   )
 
   const responseData = await response.data
+
+  console.log(responseData)
 
   return responseData
 })
