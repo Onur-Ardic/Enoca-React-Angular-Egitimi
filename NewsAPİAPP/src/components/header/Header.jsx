@@ -1,34 +1,39 @@
 import './Header.css'
 import NavbarHeader from './navbar'
-import { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { selectedSearch, setCountry, setSearch } from '../../redux/NewsSlice'
+import { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { setCountry, setSearch, fetchNewsByCategory } from '../../redux/NewsSlice'
+
 const Header = () => {
   const [countryValue, setCountryValue] = useState('tr')
   const [searchValue, setSearchValue] = useState('')
 
   const dispatch = useDispatch()
+  const selectedCountry = useSelector((state) => state.news.country)
+
+  useEffect(() => {
+    dispatch(fetchNewsByCategory('general'))
+  }, [selectedCountry])
+
   const searchText = (e) => {
     e.preventDefault()
+    dispatch(setSearch(searchValue))
   }
 
-  const getSearchFetch = async () => {
-    dispatch(setSearch(searchValue))
-    await dispatch(selectedSearch())
-  }
   const onchangeCountry = (e) => {
-    setCountryValue(e.target.value)
+    const selectedCountry = e.target.value
+    setCountryValue(selectedCountry)
+    dispatch(setCountry(selectedCountry))
   }
-  dispatch(setCountry(countryValue))
+
   return (
     <>
       <div className="header font-mono">
         <div className="container">
           <div className="header-top-wrapper">
             <h3 className="d-none d-md-block">Onur Ardıç</h3>
-
             <div className="input-area d-flex flex-column flex-md-row">
-              <select name="country" id="country" onChange={onchangeCountry}>
+              <select name="country" id="country" onChange={onchangeCountry} value={countryValue}>
                 <option value="tr">Türkiye</option>
                 <option value="us">Amerika</option>
                 <option value="gb">İngiltere</option>
@@ -39,8 +44,7 @@ const Header = () => {
                   placeholder="Arama"
                   onChange={(e) => setSearchValue(e.target.value)}
                 />
-
-                <button onClick={getSearchFetch}>
+                <button type="submit">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -56,7 +60,6 @@ const Header = () => {
             </div>
           </div>
         </div>
-
         <div className="header-bottom-wrapper border-bottom">
           <div className="container py-0">
             <NavbarHeader />

@@ -1,6 +1,6 @@
 import Carousel from 'react-bootstrap/Carousel'
 import './slider.css'
-import { newsAllİtem, selectNews } from '../../redux/NewsSlice'
+import { fetchNewsByCategory, selectNews } from '../../redux/NewsSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 
@@ -9,8 +9,9 @@ function NewsCarousel() {
   const news = useSelector(selectNews)
 
   useEffect(() => {
-    dispatch(newsAllİtem())
+    dispatch(fetchNewsByCategory('general'))
   }, [])
+
   return (
     <div className="carousel">
       <div className="container">
@@ -28,18 +29,6 @@ function NewsCarousel() {
               </Carousel.Caption>
             </Carousel.Item>
           ))}
-
-          {/* <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src="https://i.ytimg.com/vi/8xSMAv3w1Sk/hq720_live.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDAk723b8JRhRsnTYZwSEeakXJu0Q"
-              alt="First slide"
-            />
-            <Carousel.Caption>
-              <h5>First slide label</h5>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-            </Carousel.Caption>
-          </Carousel.Item> */}
         </Carousel>
       </div>
     </div>

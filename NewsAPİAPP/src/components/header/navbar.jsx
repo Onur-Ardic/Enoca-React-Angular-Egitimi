@@ -1,22 +1,14 @@
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { useDispatch } from 'react-redux'
-import { getTechnologyNews, getHealthNews, getSporNews } from '../../redux/NewsSlice'
+import { fetchNewsByCategory } from '../../redux/NewsSlice'
 import { NavLink } from 'react-router-dom'
 
 function NavbarHeader() {
   const dispatch = useDispatch()
 
-  const fetchTechnologyApi = async () => {
-    await dispatch(getTechnologyNews())
-  }
-
-  const fetchHealthApi = async () => {
-    await dispatch(getHealthNews())
-  }
-
-  const fetchSportsApi = async () => {
-    await dispatch(getSporNews())
+  const fetchNews = (category) => {
+    dispatch(fetchNewsByCategory(category))
   }
 
   return (
@@ -30,14 +22,13 @@ function NavbarHeader() {
           <NavLink to="/about" exact activeClassName="active" className="nav-link">
             Hakkımda
           </NavLink>
-
-          <button className="text-start " onClick={fetchTechnologyApi}>
+          <button className="text-start" onClick={() => fetchNews('technology')}>
             Teknoloji Haberleri
           </button>
-          <button className="text-start " onClick={fetchHealthApi}>
+          <button className="text-start" onClick={() => fetchNews('health')}>
             Sağlık Haberleri
           </button>
-          <button className="text-start " onClick={fetchSportsApi}>
+          <button className="text-start" onClick={() => fetchNews('sports')}>
             Spor Haberleri
           </button>
         </Nav>
