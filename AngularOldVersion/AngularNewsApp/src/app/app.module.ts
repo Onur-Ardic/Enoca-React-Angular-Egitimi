@@ -19,14 +19,4 @@ import { NewscardComponent } from './components/newscard/newscard.component';
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {
-  constructor(private http: HttpClient) {
-    this.http
-      .get(
-        'https://newsapi.org/v2/top-headlines?country=tr&apiKey=fb44ce1bd88740d4990d843834598291'
-      )
-      .subscribe((data) => {
-        console.log(data);
-      });
-  }
-}
+export class AppModule {}
