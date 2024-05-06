@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SliderComponent } from './components/slider/slider.component';
 import { NewscardComponent } from './components/newscard/newscard.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import { NewscardComponent } from './components/newscard/newscard.component';
     SliderComponent,
     NewscardComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule], // HttpClientModule'yi buraya ekleyin
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

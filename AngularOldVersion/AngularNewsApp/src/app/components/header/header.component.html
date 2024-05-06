@@ -2,6 +2,13 @@
   <div class="container">
     <div class="navbar-top d-flex justify-content-between py-3 px-3">
       <h3>Onur Ardıç</h3>
+      <div class="country nav-link">
+        <select [(ngModel)]="selectedCountry" (change)="onCountryChange()">
+          <option value="tr">Türkiye</option>
+          <option value="us">ABD</option>
+        </select>
+      </div>
+
       <div class="search">
         <input type="text" />
         <button>Ara</button>
@@ -28,16 +35,25 @@
                 <a class="nav-link active" href="#">Anasayfa</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Hakkımda</a>
+                <a hreflang="#" class="nav-link" href="#">Hakkımda</a>
               </li>
               <li class="nav-item">
-                <button class="nav-link">Teknoloji Haberleri</button>
+                <button
+                  class="nav-link"
+                  (click)="getNewsByCategory('technology')"
+                >
+                  Teknoloji Haberleri
+                </button>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Sağlık Haberleri</a>
+                <button class="nav-link" (click)="getNewsByCategory('health')">
+                  Sağlık Haberleri
+                </button>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Spor Haberleri</a>
+                <button class="nav-link" (click)="getNewsByCategory('sports')">
+                  Spor Haberleri
+                </button>
               </li>
             </ul>
           </div>

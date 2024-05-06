@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+// newscard.component.ts
+
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { EventEmitter } from '@angular/core';
 
 interface NewsResponse {
   articles: any[];
@@ -10,17 +13,32 @@ interface NewsResponse {
   templateUrl: './newscard.component.html',
   styleUrls: ['./newscard.component.scss'],
 })
-export class NewscardComponent {
+export class NewscardComponent implements OnInit {
+  @Input() country: string = 'tr';
+  @Input() category: string = '';
+  @Output() newsDataSlider = new EventEmitter<any>();
+
   public newsData: any[] = [];
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient) {}
+
+  ngOnInit() {
+    this.fetchNewsData();
+  }
+
+  fetchNewsData() {
     this.http
       .get<NewsResponse>(
-        'https://newsapi.org/v2/top-headlines?country=tr&apiKey=fb44ce1bd88740d4990d843834598291'
+        `https://newsapi.org/v2/top-headlines?country=${this.country}&category=${this.category}&apiKey=fb44ce1bd88740d4990d843834598291`
       )
+
       .subscribe((data: NewsResponse) => {
         this.newsData = data.articles;
-        console.log('Haberler alındı:', this.newsData);
       });
+  }
+
+  ngOnChanges() {
+    // Kategori değiştiğinde API'yi tekrar çağır
+    this.fetchNewsData();
   }
 }

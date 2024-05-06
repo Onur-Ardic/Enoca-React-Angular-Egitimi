@@ -5,4 +5,11 @@ import { Component } from '@angular/core';
   templateUrl: './slider.component.html',
   styleUrls: ['./slider.component.scss'],
 })
-export class SliderComponent {}
+export class SliderComponent {
+  receivedNewsData: any[] = [];
+
+  newsDataSlider(newsSliderData: any[]) {
+    this.receivedNewsData = newsSliderData;
+    console.log(newsSliderData);
+  }
+}
