@@ -6,10 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./slider.component.scss'],
 })
 export class SliderComponent {
-  receivedNewsData: any[] = [];
+  receivedSliderData: any[] = [];
 
-  newsDataSlider(newsSliderData: any[]) {
-    this.receivedNewsData = newsSliderData;
-    console.log(newsSliderData);
+  newsDataSlider(newsData: any[]) {
+    this.receivedSliderData = newsData;
+    console.log(this.receivedSliderData);
   }
 }

@@ -18,6 +18,5 @@ export class HeaderComponent {
 
   getNewsByCategory(category: string = 'sports') {
     this.categoryChanged.emit(category);
-    console.log(this.categoryChanged.emit(category));
   }
 }

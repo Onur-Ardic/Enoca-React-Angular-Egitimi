@@ -6,7 +6,13 @@
     >
       <div class="card" *ngFor="let newsItem of newsData">
         <div class="card-img">
-          <img src="assets/lastnews.jpeg" alt="" class="img-fluid" />
+          <img
+            src="{{
+              newsItem.urlToImage ? newsItem.urlToImage : 'assets/lastnews.jpeg'
+            }}"
+            alt=""
+            class="img-fluid"
+          />
 
           <div class="card-content text-center p-3">
             <h2 class="title">{{ newsItem.author }}</h2>

@@ -1,5 +1,3 @@
-// newscard.component.ts
-
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter } from '@angular/core';
@@ -34,11 +32,11 @@ export class NewscardComponent implements OnInit {
 
       .subscribe((data: NewsResponse) => {
         this.newsData = data.articles;
+        this.newsDataSlider.emit(this.newsData);
       });
   }
 
   ngOnChanges() {
-    // Kategori değiştiğinde API'yi tekrar çağır
     this.fetchNewsData();
   }
 }
