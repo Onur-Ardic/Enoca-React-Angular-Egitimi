@@ -11,10 +11,6 @@ export class AppComponent {
 
   receivedSliderData: any[] = [];
 
-  receiveSlider(sliderData: any[]) {
-    this.receivedSliderData = sliderData;
-  }
-
   onCountryChanged(country: string) {
     console.log(this.selectedCountry);
     this.selectedCountry = country;

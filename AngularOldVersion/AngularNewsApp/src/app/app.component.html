@@ -2,9 +2,8 @@
   (countryChanged)="onCountryChanged($event)"
   (categoryChanged)="onCategoryChange($event)"
 ></app-header>
-<app-slider></app-slider>
+<app-slider [receivedSliderData]="receivedSliderData"></app-slider>
 <app-newscard
   [country]="selectedCountry"
   [category]="selectedCategory"
-  (newsDataSlider)="receiveSlider($event)"
 ></app-newscard>

@@ -1,15 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-slider',
   templateUrl: './slider.component.html',
   styleUrls: ['./slider.component.scss'],
 })
-export class SliderComponent {
-  receivedSliderData: any[] = [];
+export class SliderComponent implements OnChanges {
+  @Input() receivedSliderData: any[] = [];
 
-  newsDataSlider(newsData: any[]) {
-    this.receivedSliderData = newsData;
-    console.log(this.receivedSliderData);
+  constructor() {}
+
+  ngOnChanges(changes: SimpleChanges) {
+    if ('receivedSliderData' in changes) {
+      console.log(this.receivedSliderData);
+    }
   }
 }
