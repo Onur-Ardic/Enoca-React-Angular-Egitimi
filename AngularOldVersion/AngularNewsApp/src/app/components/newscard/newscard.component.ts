@@ -32,7 +32,6 @@ export class NewscardComponent implements OnInit {
 
       .subscribe((data: NewsResponse) => {
         this.newsData = data.articles;
-        console.log(this.newsData);
         this.newsDataSlider.emit(this.newsData);
       });
   }

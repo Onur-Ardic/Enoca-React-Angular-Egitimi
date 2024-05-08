@@ -10,9 +10,5 @@ export class SliderComponent implements OnChanges {
 
   constructor() {}
 
-  ngOnChanges(changes: SimpleChanges) {
-    if ('receivedSliderData' in changes) {
-      console.log(this.receivedSliderData);
-    }
-  }
+  ngOnChanges(changes: SimpleChanges) {}
 }

@@ -16,7 +16,6 @@ export class AppComponent {
   }
 
   onCountryChanged(country: string) {
-    console.log(this.selectedCountry);
     this.selectedCountry = country;
   }
 
