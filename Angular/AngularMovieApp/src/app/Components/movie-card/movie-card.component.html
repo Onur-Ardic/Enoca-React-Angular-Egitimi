@@ -18,62 +18,6 @@
             </div>
           </a>
         </div>
-
-        <div class="card position-relative">
-          <a href="#">
-            <img
-              src="https://teaser-trailer.com/wp-content/uploads/2019/01/Polar-new-banner.jpg"
-              alt=""
-              class="img-fluid"
-            />
-
-            <div class="top-number-list position-absolute text-white">
-              <p>2</p>
-            </div>
-          </a>
-        </div>
-
-        <div class="card position-relative">
-          <a href="#">
-            <img
-              src="https://teaser-trailer.com/wp-content/uploads/2019/01/Polar-new-banner.jpg"
-              alt=""
-              class="img-fluid"
-            />
-
-            <div class="top-number-list position-absolute text-white">
-              <p>3</p>
-            </div>
-          </a>
-        </div>
-
-        <div class="card position-relative">
-          <a href="#">
-            <img
-              src="https://teaser-trailer.com/wp-content/uploads/2019/01/Polar-new-banner.jpg"
-              alt=""
-              class="img-fluid"
-            />
-
-            <div class="top-number-list position-absolute text-white">
-              <p>4</p>
-            </div>
-          </a>
-        </div>
-
-        <div class="card position-relative">
-          <a href="#">
-            <img
-              src="https://teaser-trailer.com/wp-content/uploads/2019/01/Polar-new-banner.jpg"
-              alt=""
-              class="img-fluid"
-            />
-
-            <div class="top-number-list position-absolute text-white">
-              <p>5</p>
-            </div>
-          </a>
-        </div>
       </div>
     </div>
   </div>
@@ -83,26 +27,46 @@
   <div class="container-fluid">
     <h1 class="text-white fs-1 text-center">Şimdi Keşfet</h1>
     <div class="categories d-flex justify-content-center gap-5 mt-5">
-      <a href="#" class="categories-link">
-        <h3 class="fs-4 text-white cursor-pointer active">Now Playing</h3>
-      </a>
+      <button class="categories-link" (click)="fetchData('now_playing')">
+        <h3 class="fs-4 text-white cursor-pointer">Now Playing</h3>
+      </button>
 
-      <a href="#" class="categories-link">
+      <button class="categories-link" (click)="fetchData('upcoming')">
         <h3 class="fs-4 text-white cursor-pointer">Upcoming</h3>
-      </a>
+      </button>
 
-      <a href="#" class="categories-link">
+      <button class="categories-link" (click)="fetchData('top_rated')">
         <h3 class="fs-4 text-white cursor-pointer">Top Rated</h3>
-      </a>
+      </button>
 
-      <a href="#" class="categories-link">
+      <button class="categories-link" (click)="fetchData('popular')">
         <h3 class="fs-4 text-white cursor-pointer">Popular</h3>
-      </a>
+      </button>
     </div>
     <div class="card-wrapper mt-5">
       <div
         class="category-card-wrapper d-flex gap-3 flex-wrap justify-content-center"
       >
+        <div class="card">
+          <div class="card-image">
+            <img
+              src="https://teaser-trailer.com/wp-content/uploads/2019/01/Polar-new-banner.jpg"
+              alt=""
+              class="img-fluid"
+            />
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-image">
+            <img
+              src="https://teaser-trailer.com/wp-content/uploads/2019/01/Polar-new-banner.jpg"
+              alt=""
+              class="img-fluid"
+            />
+          </div>
+        </div>
+
         <div class="card">
           <div class="card-image">
             <img
