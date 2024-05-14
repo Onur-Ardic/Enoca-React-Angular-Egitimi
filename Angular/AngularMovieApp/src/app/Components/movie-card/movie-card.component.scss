@@ -1,0 +1,62 @@
+@mixin card-styles {
+  width: 250px;
+  height: 100%;
+
+  img {
+    height: 300px;
+    object-fit: cover;
+  }
+}
+
+.movie-cards {
+  .card-wrapper {
+    .top-raiting-card-wrapper {
+      .card {
+        @include card-styles;
+        .top-number-list {
+          bottom: -35%;
+          left: -10px;
+          p {
+            font-size: 120px;
+            text-shadow: 0 0 3px #0096e5, 0 0 5px #0000ff;
+            color: #242424;
+          }
+        }
+      }
+    }
+  }
+}
+
+.cateogories-card {
+  margin-top: 160px;
+  .categories {
+    .categories-link {
+      h3 {
+        &:hover {
+          color: #0096e5 !important;
+          transition: 0.2s ease-in-out;
+        }
+
+        &.active {
+          &::after {
+            width: 100%;
+            height: 3px;
+            background-color: #3a3f47;
+            content: "";
+            display: block;
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+  }
+  a {
+    text-decoration: none;
+  }
+
+  .card-wrapper {
+    .card {
+      @include card-styles;
+    }
+  }
+}

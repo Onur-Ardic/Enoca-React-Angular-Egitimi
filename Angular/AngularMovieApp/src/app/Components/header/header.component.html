@@ -1,0 +1,97 @@
+<header class="header">
+  <nav class="navbar poppins py-3">
+    <div class="container-fluid">
+      <a class="navbar-brand text-white fw-bold">MovieApp</a>
+      <h5 class="text-white fw-bold fs-4 mt-2 d-block d-md-none">Search</h5>
+      <form class="d-flex" role="search">
+        <input
+          class="form-control me-2 bg-color text-white rounded-4"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+
+        <button class="btn btn-outline-primary rounded-4" type="submit">
+          <i class="bi bi-search"></i>
+        </button>
+      </form>
+    </div>
+  </nav>
+
+  <div class="slider poppins">
+    <div id="movieSliderAutoplaying" class="carousel slide">
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#movieSliderAutoplaying"
+          data-bs-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#movieSliderAutoplaying"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#movieSliderAutoplaying"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+        ></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img
+            src="https://static.vecteezy.com/system/resources/previews/002/236/321/non_2x/movie-trendy-banner-vector.jpg"
+            class="d-block w-100"
+            alt="..."
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h5 class="fs-1">First slide label</h5>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img
+            src="https://t3.ftcdn.net/jpg/02/12/87/66/360_F_212876650_M5I037kXx1zTytm9eX01TRguJXQ0hVkt.jpg"
+            class="d-block w-100"
+            alt="..."
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h5 class="fs-1">First slide label</h5>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img
+            src="https://teaser-trailer.com/wp-content/uploads/2019/01/Polar-new-banner.jpg"
+            class="d-block w-100"
+            alt="..."
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h5 class="fs-1">First slide label</h5>
+          </div>
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#movieSliderAutoplaying"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#movieSliderAutoplaying"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+</header>

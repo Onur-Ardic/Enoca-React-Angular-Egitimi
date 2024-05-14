@@ -1,0 +1,11 @@
+.slider {
+  .carousel-inner {
+    .carousel-item {
+      height: 600px;
+      .carousel-caption {
+        left: 0;
+        right: 60%;
+      }
+    }
+  }
+}
