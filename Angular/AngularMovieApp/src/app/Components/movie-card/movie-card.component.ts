@@ -1,5 +1,7 @@
 import { Component, Input, Output, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 export interface Movie {
+  id: number;
   title: string;
   poster_path: string;
 }
@@ -12,9 +14,13 @@ export interface Movie {
 export class MovieCardComponent implements OnInit {
   movieData: Movie[] = [];
 
-  constructor() {}
-
-  ngOnInit(): void {}
+  constructor(private router: Router) {}
+  goToDetailPage(movieId: number) {
+    this.router.navigate(['/movie-detail', movieId]);
+  }
+  ngOnInit(): void {
+    this.fetchData('now_playing');
+  }
 
   fetchData(category: string) {
     let apiUrl = '';
@@ -41,7 +47,10 @@ export class MovieCardComponent implements OnInit {
         return response.json();
       })
       .then((data) => {
-        this.movieData = data.results;
+        this.movieData = data.results.map((movie: Movie) => ({
+          ...movie,
+          id: movie.id,
+        }));
 
         console.log(this.movieData);
       });

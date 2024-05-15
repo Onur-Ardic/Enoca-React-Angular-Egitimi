@@ -5,16 +5,18 @@
       <div
         class="top-raiting-card-wrapper mt-3 d-flex gap-4 justify-content-center"
       >
-        <div class="card position-relative">
+        <div
+          class="card position-relative"
+          *ngFor="let movie of movieData.slice(0, 10); let i = index"
+        >
           <a href="#">
             <img
-              src="https://teaser-trailer.com/wp-content/uploads/2019/01/Polar-new-banner.jpg"
-              alt=""
+              [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+              alt="{{ movie.title }}"
               class="img-fluid"
             />
-
             <div class="top-number-list position-absolute text-white">
-              <p>1</p>
+              <p>{{ i + 1 }}</p>
             </div>
           </a>
         </div>
@@ -47,92 +49,16 @@
       <div
         class="category-card-wrapper d-flex gap-3 flex-wrap justify-content-center"
       >
-        <div class="card">
+        <div
+          class="card"
+          *ngFor="let movie of movieData.slice(0, 10)"
+          (click)="goToDetailPage(movie.id)"
+        >
           <div class="card-image">
             <img
-              src="https://teaser-trailer.com/wp-content/uploads/2019/01/Polar-new-banner.jpg"
-              alt=""
-              class="img-fluid"
-            />
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-image">
-            <img
-              src="https://teaser-trailer.com/wp-content/uploads/2019/01/Polar-new-banner.jpg"
-              alt=""
-              class="img-fluid"
-            />
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-image">
-            <img
-              src="https://teaser-trailer.com/wp-content/uploads/2019/01/Polar-new-banner.jpg"
-              alt=""
-              class="img-fluid"
-            />
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-image">
-            <img
-              src="https://teaser-trailer.com/wp-content/uploads/2019/01/Polar-new-banner.jpg"
-              alt=""
-              class="img-fluid"
-            />
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-image">
-            <img
-              src="https://teaser-trailer.com/wp-content/uploads/2019/01/Polar-new-banner.jpg"
-              alt=""
-              class="img-fluid"
-            />
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-image">
-            <img
-              src="https://teaser-trailer.com/wp-content/uploads/2019/01/Polar-new-banner.jpg"
-              alt=""
-              class="img-fluid"
-            />
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-image">
-            <img
-              src="https://teaser-trailer.com/wp-content/uploads/2019/01/Polar-new-banner.jpg"
-              alt=""
-              class="img-fluid"
-            />
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-image">
-            <img
-              src="https://teaser-trailer.com/wp-content/uploads/2019/01/Polar-new-banner.jpg"
-              alt=""
-              class="img-fluid"
-            />
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-image">
-            <img
-              src="https://teaser-trailer.com/wp-content/uploads/2019/01/Polar-new-banner.jpg"
-              alt=""
-              class="img-fluid"
+              [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+              alt="{{ movie.title }}"
+              class="img-fluid w-100"
             />
           </div>
         </div>

@@ -7,6 +7,7 @@ import { HomeComponent } from './Components/home/home.component';
 import { MovieCardComponent } from './Components/movie-card/movie-card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { MovieDetailComponent } from './Components/movie-detail/movie-detail.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderComponent,
     HomeComponent,
     MovieCardComponent,
+    MovieDetailComponent,
   ],
   imports: [
     BrowserModule,
