@@ -15,9 +15,11 @@ export class MovieCardComponent implements OnInit {
   movieData: Movie[] = [];
 
   constructor(private router: Router) {}
+
   goToDetailPage(movieId: number) {
-    this.router.navigate(['/movie-detail', movieId]);
+    this.router.navigate(['/movie-detail', movieId]); // Or simply this.router.navigate(['/movie-detail/' + movieId]);
   }
+
   ngOnInit(): void {
     this.fetchData('now_playing');
   }

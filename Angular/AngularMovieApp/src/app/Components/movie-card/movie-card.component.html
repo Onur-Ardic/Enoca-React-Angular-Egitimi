@@ -49,18 +49,16 @@
       <div
         class="category-card-wrapper d-flex gap-3 flex-wrap justify-content-center"
       >
-        <div
-          class="card"
-          *ngFor="let movie of movieData.slice(0, 10)"
-          (click)="goToDetailPage(movie.id)"
-        >
-          <div class="card-image">
-            <img
-              [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
-              alt="{{ movie.title }}"
-              class="img-fluid w-100"
-            />
-          </div>
+        <div class="card" *ngFor="let movie of movieData.slice(0, 10)">
+          <a [routerLink]="['/movie-detail', movie.id]">
+            <div class="card-image">
+              <img
+                [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+                alt="{{ movie.title }}"
+                class="img-fluid w-100"
+              />
+            </div>
+          </a>
         </div>
       </div>
     </div>
