@@ -4,14 +4,14 @@
       >MovieApp</a
     >
     <h5 class="text-white fw-bold fs-4 mt-2 d-block d-md-none">Search</h5>
-    <form class="d-flex" role="search">
+    <form class="d-flex" role="search" (ngSubmit)="search($event)">
       <input
+        #searchInput
         class="form-control me-2 bg-color text-white rounded-4"
         type="search"
         placeholder="Search"
         aria-label="Search"
       />
-
       <button class="btn btn-outline-primary rounded-4" type="submit">
         <i class="bi bi-search"></i>
       </button>
