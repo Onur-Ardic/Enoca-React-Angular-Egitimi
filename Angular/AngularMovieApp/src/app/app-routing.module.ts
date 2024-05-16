@@ -6,6 +6,7 @@ import { HomeComponent } from './Components/home/home.component';
 const routes: Routes = [
   { path: 'movie-detail/:id', component: MovieDetailComponent },
   { path: 'Home', component: HomeComponent },
+  { path: '', redirectTo: '/Home', pathMatch: 'full' },
 ];
 
 @NgModule({

@@ -1,1 +1,77 @@
-<p>movie-detail works!</p>
+<section class="movie-card">
+  <div class="container">
+    <div class="poster-info row gap-3 justify-content-center mt-5">
+      <div class="title-s-image col-md-6">
+        <img
+          [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+          alt="{{ movie.title }}"
+          class="w-100"
+        />
+      </div>
+      <div class="movie-content col-md-5">
+        <div class="content-text">
+          <h3 class="text-white text-center">{{ movie.title }}</h3>
+          <div class="d-flex gap-3 justify-content-center">
+            <span class="text-white fs-5 text-center"
+              >{{ movie.release_date | date }}|</span
+            >
+            <span class="text-white fs-5 text-center"
+              >{{ movie.vote_average }}|</span
+            >
+            <span class="text-white fs-5 text-center">{{
+              movie.vote_count
+            }}</span>
+          </div>
+        </div>
+
+        <div class="content">
+          <div class="button-area d-flex gap-3 justify-content-center mt-5">
+            <h3>
+              <button
+                class="border-none bg-transparent rounded-1 text-white"
+                (click)="selectTab('about')"
+              >
+                About Movie
+              </button>
+            </h3>
+
+            <h3>
+              <button
+                class="border-none bg-transparent rounded-1 text-white"
+                (click)="selectTab('reviews')"
+              >
+                Reviews
+              </button>
+            </h3>
+
+            <h3>
+              <button
+                class="border-none bg-transparent rounded-1 text-white"
+                (click)="selectTab('cast')"
+              >
+                Cast
+              </button>
+            </h3>
+          </div>
+
+          <div class="tab-content mt-4">
+            <div *ngIf="selectedTab === 'about'">
+              <h2 class="text-center text-white">About Movie</h2>
+              <p class="text-center text-white">{{ movie.overview }}</p>
+            </div>
+
+            <div *ngIf="selectedTab === 'reviews'">
+              <h2 class="text-center text-white">Reviews</h2>
+              <p class="text-center text-white">{{ movie }}</p>
+            </div>
+
+            <div *ngIf="selectedTab === 'cast'">
+              <h2 class="text-center text-white">Cast</h2>
+              <p class="text-white text-center">Cast content goes here...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
