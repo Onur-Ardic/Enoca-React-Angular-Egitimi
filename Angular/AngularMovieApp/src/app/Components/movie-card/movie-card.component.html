@@ -3,19 +3,20 @@
     <div class="top-rating-card mt-3">
       <h3 class="text-white fw-bold">Top 10 Movie</h3>
       <div class="top-raiting-card-wrapper mt-3">
-        <owl-carousel-o [options]="customOptions" class="w-100">
+        <owl-carousel-o [options]="customOptions" class="owl-carousel-1">
           <ng-container
             *ngFor="let movie of movieData.slice(0, 10); let i = index"
+            class="d-flex justify-content-center align-center"
           >
-            <ng-template carouselSlide>
-              <div class="card position-relative">
-                <a href="#">
+            <ng-template class="carousel-movie" carouselSlide>
+              <div class="card position-relative mx-auto">
+                <a [routerLink]="['/movie-detail', movie.id]">
                   <img
                     [src]="
                       'https://image.tmdb.org/t/p/w500' + movie.poster_path
                     "
                     alt="{{ movie.title }}"
-                    class="img-fluid"
+                    class="img-fluid w-100"
                   />
                   <div class="top-number-list position-absolute text-white">
                     <p>{{ i + 1 }}</p>
@@ -32,28 +33,40 @@
 <section class="cateogories-card">
   <div class="container-fluid">
     <h1 class="text-white fs-1 text-center">Şimdi Keşfet</h1>
-    <div class="categories d-flex justify-content-center gap-5 mt-5">
-      <button class="categories-link" (click)="fetchData('now_playing')">
-        <h3 class="fs-4 text-white cursor-pointer">Now Playing</h3>
+    <div class="categories d-flex justify-content-center mt-5">
+      <button
+        class="categories-link bg-transparent btn"
+        (click)="fetchData('now_playing')"
+      >
+        <h6 class="text-white cursor-pointer">Now Playing</h6>
       </button>
 
-      <button class="categories-link" (click)="fetchData('upcoming')">
-        <h3 class="fs-4 text-white cursor-pointer">Upcoming</h3>
+      <button
+        class="categories-link bg-transparent btn"
+        (click)="fetchData('upcoming')"
+      >
+        <h6 class="text-white cursor-pointer">Upcoming</h6>
       </button>
 
-      <button class="categories-link" (click)="fetchData('top_rated')">
-        <h3 class="fs-4 text-white cursor-pointer">Top Rated</h3>
+      <button
+        class="categories-link bg-transparent btn"
+        (click)="fetchData('top_rated')"
+      >
+        <h6 class="text-white cursor-pointer">Top Rated</h6>
       </button>
 
-      <button class="categories-link" (click)="fetchData('popular')">
-        <h3 class="fs-4 text-white cursor-pointer">Popular</h3>
+      <button
+        class="categories-link bg-transparent btn"
+        (click)="fetchData('popular')"
+      >
+        <h6 class="text-white cursor-pointer">Popular</h6>
       </button>
     </div>
     <div class="card-wrapper mt-5">
       <div
         class="category-card-wrapper d-flex gap-3 flex-wrap justify-content-center"
       >
-        <div class="card" *ngFor="let movie of movieData.slice(0, 10)">
+        <div class="card" *ngFor="let movie of movieData.slice(0, 18)">
           <a [routerLink]="['/movie-detail', movie.id]">
             <div class="card-image">
               <img

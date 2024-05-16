@@ -16,9 +16,9 @@ export class MovieCardComponent implements OnInit {
 
   customOptions: any = {
     loop: true,
-    margin: 10,
+    margin: 1,
     autoplay: true,
-    autoplayTimeout: 2000,
+    autoplayTimeout: 4000,
     dots: true,
     nav: true,
     responsive: {

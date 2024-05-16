@@ -1,10 +1,8 @@
-.slider {
-  .carousel-inner {
-    .carousel-item {
-      height: 600px;
-      .carousel-caption {
-        left: 0;
-        right: 60%;
+@media (min-width: 1000px) {
+  .slider {
+    .carousel-inner {
+      .carousel-item {
+        height: 600px;
       }
     }
   }

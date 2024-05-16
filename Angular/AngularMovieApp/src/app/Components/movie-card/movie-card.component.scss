@@ -4,7 +4,6 @@
 
   img {
     height: 300px;
-    object-fit: cover;
   }
 }
 
@@ -14,8 +13,9 @@
       .card {
         @include card-styles;
         .top-number-list {
-          bottom: -35%;
+          bottom: -18%;
           left: -10px;
+          z-index: 3;
           p {
             font-size: 120px;
             text-shadow: 0 0 3px #0096e5, 0 0 5px #0000ff;
