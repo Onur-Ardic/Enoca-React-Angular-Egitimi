@@ -73,8 +73,6 @@ export class MovieCardComponent implements OnInit {
           ...movie,
           id: movie.id,
         }));
-
-        console.log(this.movieData);
       });
   }
 }

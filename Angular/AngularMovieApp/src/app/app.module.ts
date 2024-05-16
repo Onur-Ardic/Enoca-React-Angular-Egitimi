@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MovieDetailComponent } from './Components/movie-detail/movie-detail.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { SearchComponent } from './Components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     MovieCardComponent,
     MovieDetailComponent,
     NavbarComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,

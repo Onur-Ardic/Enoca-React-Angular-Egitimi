@@ -1,0 +1,23 @@
+<section class="search-results container">
+  <h2 class="text-white text-center">Arama Sonuçları</h2>
+  <p class="text-center text-white" *ngIf="searchQuery">
+    Aranan terim: {{ searchQuery }}
+  </p>
+
+  <div
+    class="row justify-content-center card-wrapper"
+    *ngIf="searchResults.length > 0"
+  >
+    <div *ngFor="let movie of searchResults" class="card-movie col-md-2 m-3">
+      <a [routerLink]="['/movie-detail', movie.id]" class="w-100">
+        <img
+          [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+          alt="{{ movie.title }}"
+          class="img-fluid w-100"
+        />
+      </a>
+      <h6 class="text-white">{{ movie.title }}</h6>
+    </div>
+  </div>
+  <p *ngIf="searchResults.length === 0">Sonuç bulunamadı</p>
+</section>
