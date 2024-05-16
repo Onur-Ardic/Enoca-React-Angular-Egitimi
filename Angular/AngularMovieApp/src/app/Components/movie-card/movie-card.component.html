@@ -2,29 +2,33 @@
   <div class="card-wrapper">
     <div class="top-rating-card mt-3">
       <h3 class="text-white fw-bold">Top 10 Movie</h3>
-      <div
-        class="top-raiting-card-wrapper mt-3 d-flex gap-4 justify-content-center"
-      >
-        <div
-          class="card position-relative"
-          *ngFor="let movie of movieData.slice(0, 10); let i = index"
-        >
-          <a href="#">
-            <img
-              [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
-              alt="{{ movie.title }}"
-              class="img-fluid"
-            />
-            <div class="top-number-list position-absolute text-white">
-              <p>{{ i + 1 }}</p>
-            </div>
-          </a>
-        </div>
+      <div class="top-raiting-card-wrapper mt-3">
+        <owl-carousel-o [options]="customOptions" class="w-100">
+          <ng-container
+            *ngFor="let movie of movieData.slice(0, 10); let i = index"
+          >
+            <ng-template carouselSlide>
+              <div class="card position-relative">
+                <a href="#">
+                  <img
+                    [src]="
+                      'https://image.tmdb.org/t/p/w500' + movie.poster_path
+                    "
+                    alt="{{ movie.title }}"
+                    class="img-fluid"
+                  />
+                  <div class="top-number-list position-absolute text-white">
+                    <p>{{ i + 1 }}</p>
+                  </div>
+                </a>
+              </div>
+            </ng-template>
+          </ng-container>
+        </owl-carousel-o>
       </div>
     </div>
   </div>
 </section>
-
 <section class="cateogories-card">
   <div class="container-fluid">
     <h1 class="text-white fs-1 text-center">Şimdi Keşfet</h1>

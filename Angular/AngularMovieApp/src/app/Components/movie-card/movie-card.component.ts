@@ -14,10 +14,30 @@ export interface Movie {
 export class MovieCardComponent implements OnInit {
   movieData: Movie[] = [];
 
+  customOptions: any = {
+    loop: true,
+    margin: 10,
+    autoplay: true,
+    autoplayTimeout: 2000,
+    dots: true,
+    nav: true,
+    responsive: {
+      0: {
+        items: 1,
+      },
+      600: {
+        items: 2,
+      },
+      1000: {
+        items: 3,
+      },
+    },
+  };
+
   constructor(private router: Router) {}
 
   goToDetailPage(movieId: number) {
-    this.router.navigate(['/movie-detail', movieId]); // Or simply this.router.navigate(['/movie-detail/' + movieId]);
+    this.router.navigate(['/movie-detail', movieId]);
   }
 
   ngOnInit(): void {
