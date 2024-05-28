@@ -1,10 +1,7 @@
-import { Component, Input, Output, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-export interface Movie {
-  id: number;
-  title: string;
-  poster_path: string;
-}
+import { Movie, MovieService } from '../../movie.service';
+import { Width } from 'ngx-owl-carousel-o/lib/services/carousel.service';
 
 @Component({
   selector: 'app-movie-card',
@@ -15,26 +12,32 @@ export class MovieCardComponent implements OnInit {
   movieData: Movie[] = [];
 
   customOptions: any = {
-    loop: true,
-    margin: 1,
+    margin: 10,
     autoplay: true,
     autoplayTimeout: 4000,
-    dots: true,
-    nav: true,
+    dots: false,
+    autoWidth: false,
+    nav: false,
     responsive: {
       0: {
         items: 1,
       },
-      600: {
+      200: {
         items: 2,
       },
-      1000: {
+      600: {
         items: 3,
+      },
+      800: {
+        items: 4,
+      },
+      1000: {
+        items: 5,
       },
     },
   };
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private movieService: MovieService) {}
 
   goToDetailPage(movieId: number) {
     this.router.navigate(['/movie-detail', movieId]);
@@ -45,34 +48,13 @@ export class MovieCardComponent implements OnInit {
   }
 
   fetchData(category: string) {
-    let apiUrl = '';
-    if (category === 'now_playing') {
-      apiUrl =
-        'https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1&api_key=db47e7b14bef3cdd12f9aa38d686e5c5';
-    }
-    if (category === 'upcoming') {
-      apiUrl =
-        'https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1&api_key=db47e7b14bef3cdd12f9aa38d686e5c5';
-    } else if (category === 'top_rated') {
-      apiUrl =
-        'https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1&api_key=db47e7b14bef3cdd12f9aa38d686e5c5';
-    } else if (category === 'popular') {
-      apiUrl =
-        'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=db47e7b14bef3cdd12f9aa38d686e5c5';
-    }
-
-    fetch(apiUrl)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then((data) => {
-        this.movieData = data.results.map((movie: Movie) => ({
-          ...movie,
-          id: movie.id,
-        }));
-      });
+    this.movieService.fetchMovies(category).subscribe(
+      (movies) => {
+        this.movieData = movies;
+      },
+      (error) => {
+        console.error('Error fetching movies:', error);
+      }
+    );
   }
 }

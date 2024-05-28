@@ -57,6 +57,7 @@
   .card-wrapper {
     .card {
       @include card-styles;
+      width: 200px;
     }
   }
 }
