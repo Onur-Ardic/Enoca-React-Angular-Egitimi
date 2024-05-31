@@ -1,0 +1,34 @@
+<div class="card row col-5 mx-auto" *ngIf="selectedMovie">
+  <div class="card-body">
+    <h5 class="card-title text-center">
+      {{ selectedMovie.id }}- {{ selectedMovie.movieName }}
+    </h5>
+
+    <div class="input-group">
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="selectedMovie.movieName"
+      />
+      <div class="input-group-append">
+        <button class="btn btn-warning" type="button">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card-wrapper row col-5 mx-auto pt-5">
+  <div class="flex gap-1">
+    <div class="card-header bg-primary p-3 text-white">MovieList</div>
+    <ul class="list-group rounded-0">
+      <li
+        class="list-group-item"
+        *ngFor="let item of MovieList"
+        (click)="onSelect(item)"
+        [ngClass]="{ active: item === selectedMovie }"
+      >
+        {{ item.id }} - {{ item.movieName }}
+      </li>
+    </ul>
+  </div>
+</div>
