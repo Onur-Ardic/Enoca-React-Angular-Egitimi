@@ -8,11 +8,29 @@
       <input
         type="text"
         placeholder="TODO Ekle"
+        #todoText
         class="outline-none border rounded-1 mb-2"
       />
       <div class="input-group-append">
-        <button class="btn btn-primary mb-3">Add</button>
+        <button
+          class="btn btn-primary mb-3"
+          (click)="addItem(todoText.value); todoText.value = ''"
+        >
+          Add
+        </button>
       </div>
+    </div>
+
+    <div class="custom-control custom-checkbox my-3">
+      <input
+        type="checkbox"
+        name="custom-control-input"
+        id="displayAll"
+        class="me-1"
+        [(ngModel)]="displayAll"
+        class="custom-control-input"
+      />
+      <label for="displayAll" name="custom-control-input">DisplayAll</label>
     </div>
 
     <table class="table table-striped table-bordered">
