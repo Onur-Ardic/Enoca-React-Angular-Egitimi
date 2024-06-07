@@ -1,0 +1,14 @@
+<div class="card row col-5 mx-auto" *ngIf="movie">
+  <div class="card-body">
+    <h5 class="card-title text-center">
+      {{ movie.id }}- {{ movie.movieName }}
+    </h5>
+
+    <div class="input-group">
+      <input type="text" class="form-control" [(ngModel)]="movie.movieName" />
+      <div class="input-group-append">
+        <button class="btn btn-warning" type="button">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
