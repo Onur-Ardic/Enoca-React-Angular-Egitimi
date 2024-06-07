@@ -1,10 +1,13 @@
-<nav class="navbar bg-blue-900 p-3">
+<nav class="navbar bg-black p-3 border-b border-opacity-40 fixed w-full z-30">
   <div class="navbar-wrapper container mx-auto flex justify-between">
     <div class="logo">
       <h1 class="text-3xl font-bold text-white">Onur Ardıç</h1>
     </div>
 
-    <ul class="navbar-items flex gap-3">
+    <ul
+      [ngClass]="{ open: isNavbarOpen, 'flex gap-3': true }"
+      class="navbar-items"
+    >
       <li
         class="navbar-item text-white transition text-md rounded-sm border p-2 hover:bg-white hover:text-black"
       >
@@ -21,5 +24,12 @@
         <a href="#">Portfolio</a>
       </li>
     </ul>
+
+    <button
+      class="navbar-toggle lg:hidden text-white transition relative z-40"
+      (click)="toggleNavbar()"
+    >
+      <i class="bi bi-list text-3xl"></i>
+    </button>
   </div>
 </nav>

@@ -7,6 +7,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class DataService {
   private dataSubject = new BehaviorSubject<any>({});
+  private dataRepos = new BehaviorSubject<any>([]);
+  reposInfo: Observable<any>;
   dataInfo: Observable<any>;
 
   getData(): any {
@@ -17,7 +19,16 @@ export class DataService {
       });
   }
 
+  getRepos(): any {
+    this.http
+      .get('https://api.github.com/users/Onur-Ardic/repos')
+      .subscribe((repos) => {
+        this.dataRepos.next(repos);
+      });
+  }
+
   constructor(private http: HttpClient) {
     this.dataInfo = this.dataSubject.asObservable();
+    this.reposInfo = this.dataRepos.asObservable();
   }
 }

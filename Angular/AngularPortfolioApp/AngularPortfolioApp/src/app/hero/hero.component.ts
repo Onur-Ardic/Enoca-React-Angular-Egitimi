@@ -13,7 +13,6 @@ export class HeroComponent {
     this.dataService.getData();
     this.dataInfo = await this.dataService.dataInfo.subscribe((data) => {
       this.dataInfo = data;
-      console.log(this.dataInfo);
     });
   }
 }

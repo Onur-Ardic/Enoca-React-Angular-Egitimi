@@ -1,0 +1,24 @@
+<section class="repos bg-black py-16">
+  <h1 class="text-3xl text-white text-center mb-12">Projelerim</h1>
+  <div class="repos-wrapper container mx-auto flex gap-3 flex-wrap">
+    <div
+      class="mb-4 bg-black text-white rounded-lg shadow-md w-[300px] relative"
+      *ngFor="let repos of reposInfo"
+    >
+      <div class="p-4">
+        <h2 class="font-bold text-lg">{{ repos.name }}</h2>
+        <div class="flex mt-2">
+          <a
+            href="{{ repos.html_url }}"
+            target="_blank"
+            class="inline-block px-4 py-2 bg-transparent text-white border rounded-md hover:bg-white hover:text-black transition-all"
+            >Repoya Git</a
+          >
+          <span class="ml-2 text-gray-600 absolute bottom-2 right-2"
+            >Yıldız: {{ repos.stargazers_count }}</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
