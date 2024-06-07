@@ -1,0 +1,50 @@
+<section class="hero bg-black">
+  <div
+    class="hero-wrapper container mx-auto py-36 grid grid-cols-2 justify-items-center place-items-center"
+  >
+    <div class="hero-left col-span-1" *ngIf="dataInfo">
+      <h1 class="text-5xl font-bold text-white">{{ dataInfo.name }}</h1>
+      <p class="text-xl font-bold text-white">{{ dataInfo.bio }}</p>
+
+      <div class="social">
+        <div class="social-media-info flex gap-3">
+          <p class="text-white">Fallowers : {{ dataInfo.followers }}</p>
+          <p class="text-white">Following : {{ dataInfo.following }}</p>
+        </div>
+        <div class="social-media flex gap-2 mt-3">
+          <a
+            href="#"
+            class="text-white px-4 py-3 rounded-md border hover:bg-white hover:text-black transition-all text-xl"
+          >
+            <i class="bi bi-instagram"></i>
+          </a>
+          <a
+            href="#"
+            class="text-white px-4 py-3 rounded-md border hover:bg-white hover:text-black transition-all text-xl"
+          >
+            <i class="bi bi-github"></i>
+          </a>
+          <a
+            href="#"
+            class="text-white px-4 py-3 rounded-md border hover:bg-white hover:text-black transition-all text-xl"
+          >
+            <i class="bi bi-twitter"></i>
+          </a>
+          <a
+            href="#"
+            class="text-white px-4 py-3 rounded-md border hover:bg-white hover:text-black transition-all text-xl"
+          >
+            <i class="bi bi-linkedin"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right col-span-1">
+      <img
+        src="{{ dataInfo.avatar_url }}"
+        alt="{{ dataInfo.name }}"
+        class="rounded-full"
+      />
+    </div>
+  </div>
+</section>
