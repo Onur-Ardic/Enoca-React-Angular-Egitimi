@@ -8,6 +8,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class DataService {
   private dataSubject = new BehaviorSubject<any>({});
   private dataRepos = new BehaviorSubject<any>([]);
+
   reposInfo: Observable<any>;
   dataInfo: Observable<any>;
 
